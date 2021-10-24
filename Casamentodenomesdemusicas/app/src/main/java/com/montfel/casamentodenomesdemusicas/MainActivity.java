@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                     // Percorre as palavras da música
                     for (String pMusica : palavrasMusica) {
 
-                        // Acrescenta o score em 10 se uma palava do input for exatemente igual a
+                        // Acrescenta o score em 10 se uma palavra do input for exatemente igual a
                         // uma palavra da música
                         if (pInput.equals(pMusica)) {
                             score += 10;
@@ -109,9 +109,21 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
+                // Boolean criado para verificar se existe a palavra "feat" no input
+                boolean temFeat = false;
+
+                // Laço para verificar se existe a palavra feat no input, caso exista o laço é
+                // interrompido
+                for (String pInput : palavrasInput) {
+                    temFeat = pInput.equals("feat");
+                    if (temFeat) {
+                        break;
+                    }
+                }
+
                 // Verifica se na música existe a palavra "feat" e se ela não existe no input, caso
                 // atenda a esses requisitos descrementa o score em 5
-                if (musicaFormatada.contains("feat") && !inputFormatado.contains("feat")) {
+                if (musicaFormatada.contains("feat") && !temFeat) {
                     score -= 5;
                 }
 
